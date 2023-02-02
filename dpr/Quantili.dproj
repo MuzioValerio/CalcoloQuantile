@@ -109,6 +109,8 @@
         </DCCReference>
         <DCCReference Include="..\src\uCalcoliQuantile.Interfaces.pas"/>
         <DCCReference Include="..\src\uCalcoliQuantile.Base.pas"/>
+        <DCCReference Include="..\src\uCalcoliQuantile.Quartile.pas"/>
+        <DCCReference Include="..\src\uCalcoliQuantile.Percentile.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

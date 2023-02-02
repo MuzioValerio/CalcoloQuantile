@@ -16,6 +16,8 @@ uses
 
 type
   TCalcoliQuantileBase = class(TInterfacedObject, IQuantile)
+  strict private
+    function GetElementsCount: Integer;
   private
     FElements: TList<Extended>;
     function GetListElements: TList<Extended>;
@@ -24,8 +26,10 @@ type
    constructor Create;
    destructor Destroy; override;
 
-   function ExecuteCalc: TArray<Extended>; virtual; abstract;
+   function ExecuteCalc(const Quantile: Extended): Extended; virtual; abstract;
    property ListElements: TList<Extended> read GetListElements write SetListElements;
+    property ElementsCount: Integer read GetElementsCount;
+
   end;
 
 
@@ -55,6 +59,11 @@ begin
     FreeAndNil(Felements);
 
   inherited Destroy;
+end;
+
+function TCalcoliQuantileBase.GetElementsCount: Integer;
+begin
+  Result := FElements.Count;
 end;
 
 end.
